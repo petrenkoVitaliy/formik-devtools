@@ -5,7 +5,7 @@
   "description": "This extension is a starting point to create a real Chrome extension",
   "version": "0.0.1",
 
-  "devtools_page": "index.html",
+  "devtools_page": "devtools.html",
 
   "icons": {
     "16": "icon.png",

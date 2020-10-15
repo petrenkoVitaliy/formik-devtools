@@ -1,30 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
-/* eslint-disable */
+function Provider({ addMessage }) {
+  const onMessage = useCallback(
+    (msg) => {
+      try {
+        const message = JSON.parse(msg.props);
+        if (message && message.msg) {
+          addMessage(message.msg);
+        }
+      } catch (ex) {
+        console.log(msg);
+        console.log(ex);
+      }
+    },
+    [addMessage]
+  );
+
+  useEffect(() => {
+    // eslint-disable-next-line
+    chrome.runtime.onConnect.addListener((port) =>
+      port.onMessage.addListener(onMessage)
+    );
+  }, [onMessage]);
+
+  return null;
+}
 
 function App() {
-  useEffect(() => {
-    chrome.devtools.panels.create(
-      "My Panel",
-      "icon.png",
-      "index.html",
-      function (panel) {
-        chrome.runtime.onConnect.addListener(function (port) {
-          port.onMessage.addListener(function (msg) {
-            console.log(msg);
-            try {
-              console.log(JSON.parse(msg.props));
-            } catch (ex) {
-              console.log(ex);
-            }
-          });
-        });
-      }
-    );
-  }, []);
+  const [messages, setMessages] = useState([]);
 
-  // console.log(window);
-  return <div className="App">{window.location.href}</div>;
+  const addMessage = useCallback(
+    (newMessage) => {
+      setMessages([...messages, newMessage]);
+    },
+    [messages]
+  );
+
+  return (
+    <div className="App" onClick={() => addMessage("aa")}>
+      {messages?.map((message, index) => (
+        <div key={index}>{message}</div>
+      ))}
+      <Provider addMessage={addMessage} />
+    </div>
+  );
 }
 
 export default App;
