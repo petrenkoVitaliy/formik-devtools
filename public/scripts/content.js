@@ -1,5 +1,7 @@
 /* eslint-disable */
 (function () {
+  console.log("content");
+
   function injectScript(file, node) {
     var s = document.createElement("script");
     s.setAttribute("type", "text/javascript");
@@ -9,14 +11,11 @@
   injectScript(chrome.extension.getURL("/scripts/war.js"), "body");
 
   const runtimeId = chrome.runtime.id;
+  const port = chrome.runtime.connect(runtimeId);
+  // port.postMessage({ props: JSON.stringify({ msg: "message to app" }) });
 
   // const script = document.createElement("script");
-
   // const runtimeId = "${runtimeId}";
-  console.log("content");
-  const port = chrome.runtime.connect(runtimeId);
-  port.postMessage({ props: JSON.stringify({ a: "ass" }) });
-
   // script.text = `
   //     const postMessageort = ${port.postMessage.toString()}
   //     window.testFunction = function testFunction(props) {
