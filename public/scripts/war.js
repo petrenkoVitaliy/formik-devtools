@@ -2,10 +2,11 @@
 console.log("war");
 
 const testFunction = function (props) {
-  const runtimeId = "eaccmemlioepeifojfobdgdfojdlfaip";
   try {
     if (props) {
-      chrome.runtime.sendMessage(runtimeId, JSON.stringify(props));
+      document.dispatchEvent(
+        new CustomEvent("yourCustomEvent", { detail: props })
+      );
     }
   } catch (ex) {
     console.log(ex);

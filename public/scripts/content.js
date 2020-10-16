@@ -10,20 +10,11 @@
   }
   injectScript(chrome.extension.getURL("/scripts/war.js"), "body");
 
-  const runtimeId = chrome.runtime.id;
-  const port = chrome.runtime.connect(runtimeId);
-  // port.postMessage({ props: JSON.stringify({ msg: "message to app" }) });
+  document.addEventListener("yourCustomEvent", (e) => {
+    const runtimeId = chrome.runtime.id;
+    const port = chrome.runtime.connect(runtimeId);
 
-  // const script = document.createElement("script");
-  // const runtimeId = "${runtimeId}";
-  // script.text = `
-  //     const postMessageort = ${port.postMessage.toString()}
-  //     window.testFunction = function testFunction(props) {
-  //       if (props) {
-  //         postMessage({ props: JSON.stringify(props) });
-  //       }
-  //     };
-  //   `;
-
-  // document.documentElement.appendChild(script);
+    var data = e.detail;
+    port.postMessage(JSON.stringify({ msg: data }));
+  });
 })();

@@ -4,9 +4,12 @@ function Provider({ addMessage }) {
   const onMessage = useCallback(
     (msg) => {
       try {
-        const message = JSON.parse(msg.props);
+        console.log(msg);
+        const message = JSON.parse(msg);
+        console.log(message);
+
         if (message && message.msg) {
-          addMessage(message.msg);
+          addMessage(JSON.stringify(message.msg));
         }
       } catch (ex) {
         console.log(msg);
