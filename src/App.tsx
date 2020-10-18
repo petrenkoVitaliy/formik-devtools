@@ -29,7 +29,7 @@ interface AppProps {
 
 const App: React.FunctionComponent<AppProps> = ({ readyPing }) => {
     const [formikStates, setFormikStates] = useState<IFormikState[]>([]);
-    const [currentStep, setCurrentStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState<number>(-1);
 
     const { message: newMessage } = useMessageLoad();
 
@@ -59,14 +59,18 @@ const App: React.FunctionComponent<AppProps> = ({ readyPing }) => {
         // eslint-disable-next-line
     }, [newMessage]);
 
+    useEffect(() => {
+        console.log(formikStates);
+    }, [formikStates]);
+
     const setNextStep = () => {
-        if (currentStep < formikStates.length - 1) {
+        if (currentStep < formikStates.length - 1 && currentStep > -1) {
             setCurrentStep(currentStep + 1);
         }
     };
 
     const setPreviousStep = () => {
-        if (currentStep !== 0) {
+        if (currentStep > 0) {
             setCurrentStep(currentStep - 1);
         }
     };
@@ -75,11 +79,11 @@ const App: React.FunctionComponent<AppProps> = ({ readyPing }) => {
         <div className="app-w">
             <StatusPanel
                 currentStep={currentStep + 1}
-                steps={formikStates.length + 1}
+                steps={formikStates.length}
                 setNextStep={setNextStep}
                 setPreviousStep={setPreviousStep}
             />
-            {formikStates[currentStep] && <FormikState formikState={formikStates[currentStep]} />}
+            {currentStep > -1 && formikStates[currentStep] && <FormikState formikState={formikStates[currentStep]} />}
         </div>
     );
 };

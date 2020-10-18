@@ -11,12 +11,16 @@ export const sendMessageInTabs = () => {
     }
 };
 
-export const addListenerToMessages = (callBack: (msg: { formikProps: string }) => void) => {
+export const addListenerToMessages = (callBack: (arg: any) => void) => {
     if (!chrome?.runtime?.onConnect || !callBack) {
         return;
     } else {
         chrome.runtime.onConnect.addListener((port) => {
-            port.onMessage.addListener(callBack);
+            console.log(port);
+            if (!chrome.runtime.onConnect.hasListener(callBack)) {
+                console.log('connected');
+                port.onMessage.addListener(callBack);
+            }
         });
     }
 };
