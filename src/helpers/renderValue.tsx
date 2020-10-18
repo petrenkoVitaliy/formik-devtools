@@ -51,7 +51,7 @@ const renderObject = (valuesObject: { [key: string]: any }, classNamesMap: Class
                     return (
                         <div className={classNamesMap.inline} key={key}>
                             <div className={classNamesMap.objectProp}>{key}:</div>
-                            <div>{renderValue(valueProp, classNamesMap, margin + OBJECT_MARGIN)}</div>
+                            <div>{renderValue(valueProp, classNamesMap, margin)}</div>
                         </div>
                     );
                 })}

@@ -3,8 +3,8 @@ import { IFormikState } from '../interfaces/formikState';
 export const parceValues = (formikProps: string) => {
     if (formikProps) {
         const formikState: any = JSON.parse(formikProps);
-        const formikValuesShape: IFormikState = {};
 
+        const formikValuesShape: IFormikState = {};
         Object.entries(formikState.values).forEach(([valueName, value]) => {
             const collapsedValue = getCollapcedValue(value);
             const error = getError(formikState.errors, valueName);

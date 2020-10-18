@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormikState, StatusPanel } from './components';
+import { FormikStateList, StatusPanel } from './components';
 
 import { useMessageLoad } from './hooks/useMessageLoad';
 import { IFormikState } from './interfaces/formikState';
@@ -10,15 +10,22 @@ interface AppProps {
 }
 
 // const __mockMessages = [
-//     // JSON.stringify({
-//     //     values: { test: 1 },
-//     //     initValues: { test: 1 },
-//     //     errors: { test: 'error !!!' },
-//     //     touched: { test: true },
-//     // }),
+//     JSON.stringify({
+//         values: { test: 1 },
+//         initValues: { test: 1 },
+//         errors: { test: 'error !!!' },
+//         touched: { test: true },
+//     }),
 //     JSON.stringify({
 //         values: {
-//             test: { test: { c: [{ c3: { c4: { c5: { c6: 5 } } } }], d: null } },
+//             test: {
+//                 test: {
+//                     c: [{ c3: { c4: { c5: { c6: 5 } } } }],
+//                     c1: [{ c3: { c4: { c5: { c6: 5 } } } }],
+//                     c2: [{ c3: { c4: { c5: { c6: 5 } } } }],
+//                     d: null,
+//                 },
+//             },
 //             test1: { test: { c: [{ c3: { c4: { c5: { c6: 5 } } } }], d: null } },
 //         },
 //         initValues: { test: 1 },
@@ -37,13 +44,13 @@ const App: React.FunctionComponent<AppProps> = ({ readyPing }) => {
         readyPing();
     }, [readyPing]);
 
-    // useEffect(() => {
     //     // mock
+    // useEffect(() => {
     //     const states = __mockMessages.map((newMessage) => {
     //         const newState = parceValues(newMessage) as IFormikState;
     //         return newState;
     //     });
-    //     // setFormikStates([...states]);
+    //     setFormikStates([...states]);
     //     setCurrentStep(states.length - 1);
     //     // eslint-disable-next-line
     // }, []);
@@ -83,7 +90,9 @@ const App: React.FunctionComponent<AppProps> = ({ readyPing }) => {
                 setNextStep={setNextStep}
                 setPreviousStep={setPreviousStep}
             />
-            {currentStep > -1 && formikStates[currentStep] && <FormikState formikState={formikStates[currentStep]} />}
+            {currentStep > -1 && formikStates[currentStep] && (
+                <FormikStateList formikState={formikStates[currentStep]} />
+            )}
         </div>
     );
 };

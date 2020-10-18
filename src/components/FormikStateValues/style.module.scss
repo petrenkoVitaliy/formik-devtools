@@ -1,0 +1,91 @@
+.stateWpapper {
+    width: 100%;
+
+    font-family: monospace;
+    font-size: 13px;
+    padding: 10px;
+
+    border: 2px solid rgb(247, 247, 247);
+    border-bottom: 10px solid rgb(247, 247, 247);
+    border-left: 10px solid rgb(247, 247, 247);
+
+    &.error {
+        border: 2px solid red;
+        border-bottom: 10px solid red;
+    }
+
+    &.touched {
+        border-left: 10px solid rgb(98, 98, 241);
+    }
+
+    .collapsedWrap {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        cursor: pointer;
+
+        .name {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            border-bottom: 2px dotted white;
+            &:hover {
+                border-bottom: 2px dotted rgb(113, 5, 236);
+            }
+
+            > img {
+                width: 10px;
+                height: 10px;
+                margin-right: 10px;
+            }
+
+            font-weight: bold;
+        }
+
+        .collapsedValue {
+            margin-left: 10px;
+            color: rgb(113, 5, 236);
+        }
+    }
+
+    .errorText {
+        margin-top: 20px;
+        color: red;
+        margin-left: 40px;
+    }
+
+    .touchedText {
+        margin-top: 20px;
+        color: rgb(98, 98, 241);
+        margin-left: 40px;
+    }
+
+    .value {
+        color: grey;
+
+        margin-left: 40px;
+
+        .string {
+            color: orange;
+        }
+        .number {
+            color: blue;
+        }
+        .null {
+            color: green;
+        }
+        .objectProp {
+            color: indigo;
+        }
+
+        .inline {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        span {
+            color: black;
+        }
+    }
+}
