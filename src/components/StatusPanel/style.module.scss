@@ -1,0 +1,29 @@
+.statusPanel {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+
+    color: rgb(22, 30, 46);
+
+    .button {
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 10px;
+        box-sizing: border-box;
+
+        cursor: pointer;
+    }
+
+    .steps {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
