@@ -1,34 +1,53 @@
 {
-  "name": "formik-devtools",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "formik-devtools",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@types/chrome": "0.0.125",
+        "@types/classnames": "^2.2.10",
+        "@typescript-eslint/eslint-plugin": "4.0.0",
+        "@typescript-eslint/parser": "4.0.0",
+        "classnames": "^2.2.6",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "node-sass": "^4.14.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-scripts": "3.4.3",
+        "typescript": "^3.7.5"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "lint": "eslint \"src/**/*.{js,ts,tsx}\" --fix",
+        "prettier": "prettier --write --print-width 120  --trailing-comma all \"**/*.+(ts|tsx|js|jsx)\""
+    },
+    "pre-commit": [
+        "prettier",
+        "lint"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/node": "^12.12.62",
+        "@types/react": "^16.9.49",
+        "@types/react-dom": "^16.9.8",
+        "pre-commit": "^1.2.2",
+        "prettier": "^2.1.2"
+    }
 }
