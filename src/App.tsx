@@ -26,7 +26,7 @@ interface AppProps {
 //                     d: null,
 //                 },
 //             },
-//             test1: { test: { c: [{ c3: { c4: { c5: { c6: 5 } } } }], d: null } },
+//             test1: { string: 'aaa', num: 1, bool: true, null: null },
 //         },
 //         initValues: { test: 1 },
 //         errors: { test1: 'aaaaa' },
@@ -44,7 +44,7 @@ const App: React.FunctionComponent<AppProps> = ({ readyPing }) => {
         readyPing();
     }, [readyPing]);
 
-    //     // mock
+    // // mock
     // useEffect(() => {
     //     const states = __mockMessages.map((newMessage) => {
     //         const newState = parceValues(newMessage) as IFormikState;

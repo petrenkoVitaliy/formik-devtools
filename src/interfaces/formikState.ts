@@ -4,7 +4,7 @@ export interface IFormikState {
 
 export interface IFormikValues {
     value: any;
-    collapsedValue: string | number | undefined | null;
+    collapsedValue: string | number | boolean | undefined | null;
     error: string | undefined;
     touched: boolean;
 }
