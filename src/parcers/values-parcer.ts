@@ -6,7 +6,7 @@ export const parceValues = (formikProps: string) => {
 
         const formikValuesShape: IFormikState = {};
         Object.entries(formikState.values).forEach(([valueName, value]) => {
-            const collapsedValue = getCollapcedValue(value);
+            const collapsedValue = getCollapsedValue(value);
             const error = getError(formikState.errors, valueName);
             const touched = isValueTouchedCheck(formikState.touched, valueName);
 
@@ -27,13 +27,15 @@ const getError = (errors: { [key: string]: string }, key: string): string | unde
     return errors[key] || undefined;
 };
 
-const getCollapcedValue = (value: any): string | number | undefined | null => {
+const getCollapsedValue = (value: any): string | number | boolean | undefined | null => {
     switch (typeof value) {
         case 'object':
             return value === null ? null : JSON.stringify(value);
         case 'string':
             return value;
         case 'number':
+            return value;
+        case 'boolean':
             return value;
         case 'undefined':
             return undefined;

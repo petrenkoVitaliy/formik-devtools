@@ -22,6 +22,14 @@ const renderNumber = (value: number, classname: string, margin = 0, key = 0) => 
     );
 };
 
+const renderBoolean = (value: boolean, classname: string, margin = 0, key = 0) => {
+    return (
+        <div key={key} style={{ marginLeft: `${margin}px` }} className={classname}>
+            {`${value}`}
+        </div>
+    );
+};
+
 const renderNull = (classname: string, margin = 0, key = 0) => {
     return (
         <div key={key} style={{ marginLeft: `${margin}px` }} className={classname}>
@@ -67,6 +75,9 @@ export const renderValue = (value: any, classNamesMap: ClassNamesMap, margin = 0
     }
     if (typeof value === 'number') {
         return renderNumber(value, classNamesMap.number, margin, index);
+    }
+    if (typeof value === 'boolean') {
+        return renderBoolean(value, classNamesMap.boolean, margin, index);
     }
     if (value === null) {
         return renderNull(classNamesMap.null, margin, index);
