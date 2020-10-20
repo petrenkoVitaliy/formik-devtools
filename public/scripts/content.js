@@ -6,7 +6,6 @@
         s.setAttribute('type', 'text/javascript');
         s.setAttribute('src', file);
         document.documentElement.appendChild(s);
-        console.log('content injected');
     }
     injectScript(chrome.extension.getURL('/scripts/war.js'));
 
@@ -18,23 +17,14 @@
     });
 
     const runtimeId = chrome.runtime.id;
-    let port;
+    let port = chrome.runtime.connect(runtimeId);
     let isConnected = false;
 
     function tryToConnect() {
-        if (!isConnected) {
-            try {
-                port = chrome.runtime.connect(runtimeId);
-                isConnected = true;
-            } catch (ex) {
-                isConnected = false;
-                console.log(ex);
-            }
-            if (isConnected) {
-                sendMessages();
-            }
-        } else {
+        if (isConnected) {
             sendMessages();
+        } else {
+            chrome.runtime.connect(runtimeId);
         }
     }
 
@@ -48,7 +38,9 @@
     chrome.runtime.onMessage.addListener(function (request) {
         if (request.message === 'start') {
             port = chrome.runtime.connect(runtimeId);
+            console.log('got');
             isConnected = true;
+            sendMessages();
         }
     });
 })();

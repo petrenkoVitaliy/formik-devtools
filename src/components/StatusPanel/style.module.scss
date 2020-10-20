@@ -1,29 +1,75 @@
 .statusPanel {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-    height: 50px;
-
     color: rgb(22, 30, 46);
+    width: 300px;
+    margin: 0 10px;
 
-    .button {
-        height: 100%;
-
+    .controls {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        width: 100%;
+        height: 50px;
 
-        padding: 10px;
-        box-sizing: border-box;
+        .button {
+            height: 30px;
 
-        cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background: rgb(240, 240, 240);
+            }
+        }
+
+        .steps {
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
 
-    .steps {
-        font-size: 20px;
-        font-weight: bold;
+    .status {
+        width: 100%;
+        height: 50px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .statusButton {
+            &.initValuesShown {
+                border: 2px solid rgb(113, 5, 236);
+                color: rgb(113, 5, 236);
+            }
+
+            height: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 20px;
+
+            &:hover {
+                background: rgb(240, 240, 240);
+            }
+        }
+
+        .statusAttr {
+            color: rgb(113, 5, 236);
+            font-weight: bold;
+        }
     }
 }
