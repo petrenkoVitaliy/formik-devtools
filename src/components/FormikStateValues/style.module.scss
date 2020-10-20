@@ -1,3 +1,5 @@
+@import 'colorVariables.scss';
+
 .stateWpapper {
     width: 100%;
 
@@ -5,17 +7,17 @@
     font-size: 13px;
     padding: 10px;
 
-    border: 2px solid rgb(247, 247, 247);
-    border-bottom: 10px solid rgb(247, 247, 247);
-    border-left: 10px solid rgb(247, 247, 247);
+    border: 2px solid $backgroundColor;
+    border-bottom: 10px solid $backgroundColor;
+    border-left: 10px solid $backgroundColor;
 
     &.error {
-        border: 2px solid red;
-        border-bottom: 10px solid red;
+        border: 2px solid $errorColor;
+        border-bottom: 10px solid $errorColor;
     }
 
     &.touched {
-        border-left: 10px solid rgb(98, 98, 241);
+        border-left: 10px solid $touchedColor;
     }
 
     .collapsedWrap {
@@ -29,9 +31,10 @@
             align-items: center;
             cursor: pointer;
 
-            border-bottom: 2px dotted white;
+            border-bottom: 2px dotted $backgroundColor;
+
             &:hover {
-                border-bottom: 2px dotted rgb(113, 5, 236);
+                border-bottom: 2px dotted $symbolColor;
             }
 
             > img {
@@ -45,50 +48,71 @@
 
         .collapsedValue {
             margin-left: 10px;
-            color: rgb(113, 5, 236);
+            color: $collapcedColor;
+
+            &.stringValueColor {
+                color: $stringValueColor;
+            }
+            &.numberValueColor {
+                color: $numberValueColor;
+            }
+            &.booleanValueColor {
+                color: $booleanValueColor;
+            }
+            &.objectValueColor {
+                color: $objectValueColor;
+            }
+            &.undefinedValueColor {
+                color: $defaultValueColor;
+            }
+            &.nullValueColor {
+                color: $nullValueColor;
+            }
+        }
+    }
+
+    .datailedValue {
+        .value {
+            color: $defaultValueColor;
+
+            margin-left: 40px;
+
+            .string {
+                color: $stringValueColor;
+            }
+            .number {
+                color: $numberValueColor;
+            }
+            .boolean {
+                color: $booleanValueColor;
+            }
+            .null {
+                color: $nullValueColor;
+            }
+            .objectProp {
+                color: $objectValueColor;
+            }
+
+            .inline {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            span {
+                color: $symbolColor;
+            }
         }
     }
 
     .errorText {
         margin-top: 20px;
-        color: red;
+        color: $errorColor;
         margin-left: 40px;
     }
 
     .touchedText {
         margin-top: 20px;
-        color: rgb(98, 98, 241);
+        color: $touchedColor;
         margin-left: 40px;
-    }
-
-    .value {
-        color: grey;
-
-        margin-left: 40px;
-
-        .string {
-            color: orange;
-        }
-        .number {
-            color: blue;
-        }
-        .boolean {
-            color: coral;
-        }
-        .null {
-            color: green;
-        }
-        .objectProp {
-            color: indigo;
-        }
-
-        .inline {
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        span {
-            color: black;
-        }
     }
 }
