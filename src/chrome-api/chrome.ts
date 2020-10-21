@@ -24,7 +24,7 @@ export const addListenerToMessages = (callBack: (arg: any) => void) => {
         });
 
         chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-            if (changeInfo.status == 'complete') {
+            if (changeInfo.status === 'complete') {
                 sendMessageInTabs();
             }
         });
