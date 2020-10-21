@@ -1,6 +1,13 @@
+export interface ChangedState {
+    changedProps?: string;
+    changedValues?: string;
+    changedErrors?: string;
+    changedTouched?: string;
+}
+
 export interface IFormikStateWithChanged {
     state: IFormikState;
-    changed: string;
+    changed: ChangedState;
 }
 
 export interface IFormikState {

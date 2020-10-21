@@ -29,6 +29,14 @@ export const StatusPanel: React.FunctionComponent<StatusPanelProps> = (props) =>
     return (
         <div className={classNames.statusPanel}>
             <div className={classNames.controls}>
+                <div
+                    className={classnames([classNames.statusButton], {
+                        [classNames.initValuesShown]: isInitValuesShown,
+                    })}
+                    onClick={toggleInitValues}
+                >
+                    {isInitValuesShown ? 'hide init values' : 'show init values'}
+                </div>
                 <div className={classNames.button} onClick={setPreviousStep}>
                     Previous
                 </div>
@@ -39,21 +47,38 @@ export const StatusPanel: React.FunctionComponent<StatusPanelProps> = (props) =>
                     Next
                 </div>
             </div>
-            <div className={classNames.status}>
-                {currentState && <div className={classNames.statusAttr}>Dirty: {currentState.state.dirty + ''}</div>}
-
-                <div
-                    className={classnames([classNames.statusButton], {
-                        [classNames.initValuesShown]: isInitValuesShown,
-                    })}
-                    onClick={toggleInitValues}
-                >
-                    {isInitValuesShown ? 'hide init values' : 'show init values'}
-                </div>
-            </div>
-            <div className={classNames.status}>
-                {currentState && <div className={classNames.statusAttr}>Changed Props: {currentState.changed}</div>}
-            </div>
+            {currentState && !isInitValuesShown && (
+                <>
+                    {currentState.changed.changedProps && (
+                        <div className={classNames.status}>
+                            <div className={classNames.statusAttr}>
+                                Changed Props: {currentState.changed.changedProps}
+                            </div>
+                        </div>
+                    )}
+                    {currentState.changed.changedValues && (
+                        <div className={classNames.status}>
+                            <div className={classNames.statusAttr}>
+                                Changed Values: {currentState.changed.changedValues}
+                            </div>
+                        </div>
+                    )}
+                    {currentState.changed.changedErrors && (
+                        <div className={classNames.status}>
+                            <div className={classNames.statusAttr}>
+                                Changed Errors: {currentState.changed.changedErrors}
+                            </div>
+                        </div>
+                    )}
+                    {currentState.changed.changedTouched && (
+                        <div className={classNames.status}>
+                            <div className={classNames.statusAttr}>
+                                Changed Touched: {currentState.changed.changedTouched}
+                            </div>
+                        </div>
+                    )}
+                </>
+            )}
         </div>
     );
 };

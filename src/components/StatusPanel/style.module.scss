@@ -1,7 +1,7 @@
 .statusPanel {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(22, 30, 46);
-    width: 300px;
+    width: 400px;
     margin: 0 10px;
 
     .controls {
@@ -33,15 +33,6 @@
             font-size: 20px;
             font-weight: bold;
         }
-    }
-
-    .status {
-        width: 100%;
-        height: 50px;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
         .statusButton {
             &.initValuesShown {
@@ -50,6 +41,7 @@
             }
 
             height: 30px;
+            width: 140px;
 
             display: flex;
             justify-content: center;
@@ -60,12 +52,20 @@
             border: 2px solid black;
             border-radius: 10px;
             cursor: pointer;
-            margin-left: 20px;
 
             &:hover {
                 background: rgb(240, 240, 240);
             }
         }
+    }
+
+    .status {
+        width: 100%;
+        height: 50px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         .statusAttr {
             color: rgb(113, 5, 236);
