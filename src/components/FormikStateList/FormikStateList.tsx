@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { IFormikValues } from '../../interfaces/formikState';
-import classNames from './style.module.scss';
 import { FormikStateValues } from '../FormikStateValues';
+import classNames from './style.module.scss';
 
 interface FormikStateListProps {
     formikState: IFormikValues;

@@ -30,6 +30,14 @@ const renderBoolean = (value: boolean, classname: string, margin = 0, key = 0) =
     );
 };
 
+const renderUndefined = (classname: string, margin = 0, key = 0) => {
+    return (
+        <div key={key} style={{ marginLeft: `${margin}px` }} className={classname}>
+            undefined
+        </div>
+    );
+};
+
 const renderNull = (classname: string, margin = 0, key = 0) => {
     return (
         <div key={key} style={{ marginLeft: `${margin}px` }} className={classname}>
@@ -81,6 +89,9 @@ export const renderValue = (value: any, classNamesMap: ClassNamesMap, margin = 0
     }
     if (value === null) {
         return renderNull(classNamesMap.null, margin, index);
+    }
+    if (value === undefined) {
+        return renderUndefined(classNamesMap.undefined, margin, index);
     }
     if (value.length !== undefined) {
         return renderArray(value, classNamesMap, margin, index);

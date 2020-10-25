@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import { FormikDevtools } from './containers';
 import { sendMessageInTabs } from './chrome-api/chrome';
 
-import './index.scss';
+import './styles/resetStyles.scss';
 
 function readyPing() {
     sendMessageInTabs();
@@ -12,7 +12,7 @@ function readyPing() {
 
 ReactDOM.render(
     <React.StrictMode>
-        <App readyPing={readyPing} />
+        <FormikDevtools readyPing={readyPing} />
     </React.StrictMode>,
     document.getElementById('root'),
 );
