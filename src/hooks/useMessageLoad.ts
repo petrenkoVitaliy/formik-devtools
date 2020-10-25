@@ -15,7 +15,7 @@ export const useMessageLoad = () => {
     const onMessage = async (message: { formikProps: string }) => {
         try {
             if (message) {
-                const validatedMessage = await validateValue<IMessage>(message, messageValidation);
+                const validatedMessage = await validateValue<IMessage>(message.formikProps, messageValidation);
 
                 if (validatedMessage) {
                     setMessage(validatedMessage);
