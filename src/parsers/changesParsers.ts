@@ -15,14 +15,14 @@ export const getChangedProps = (prevState: IFormikState, currentState: IFormikSt
     [
         ...getChangedErrors(prevState.values, currentState.values),
         ...getChangedErrors(currentState.values, prevState.values),
-    ].forEach((changedValue) => changedValuesSet.add(changedValue));
+    ].forEach((changedValue) => changedErrorsSet.add(changedValue));
     const changedErrors = [...changedErrorsSet].join(', ');
 
     const changedTouchedSet = new Set<string>();
     [
         ...getChangedTouched(prevState.values, currentState.values),
         ...getChangedTouched(currentState.values, prevState.values),
-    ].forEach((changedValue) => changedValuesSet.add(changedValue));
+    ].forEach((changedValue) => changedTouchedSet.add(changedValue));
     const changedTouches = [...changedTouchedSet].join(', ');
 
     const isSomethingHasChanged = Boolean(changedErrors || changedProperties || changedTouches || changedValues);
@@ -55,6 +55,9 @@ export const getChangedInitialProps = (
 const getChangedValues = (prevFormikValues: IFormikValues, currentFormikValues: IFormikValues): string[] => {
     return Object.entries(prevFormikValues)
         .map(([fieldName, formikValue]) => {
+            if (formikValue.value === undefined && !currentFormikValues[fieldName]?.type) {
+                return fieldName;
+            }
             if (isValuesChangedCheck(formikValue.value, currentFormikValues[fieldName]?.value)) {
                 return fieldName;
             }

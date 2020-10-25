@@ -7,7 +7,7 @@ export const parseValues = (
 ): { state: IFormikState | null; formProps: InitialProperties | null } => {
     if (formikState) {
         const formProps = parseInitialValues(formikState);
-        const formikValuesShape: IFormikState = { values: {}, dirty: formikState.dirty };
+        const formikValuesShape: IFormikState = { values: {}, dirty: !!formikState.dirty };
 
         Object.entries(formikState.values).forEach(([valueName, value]) => {
             const type = getValueType(value);
@@ -19,7 +19,7 @@ export const parseValues = (
         });
 
         const touchedAndErrorsValuesSet = new Set<string>();
-        [...Object.keys(formikState.touched), ...Object.keys(formikState.errors)].forEach((key) =>
+        [...Object.keys(formikState.touched || {}), ...Object.keys(formikState.errors)].forEach((key) =>
             touchedAndErrorsValuesSet.add(key),
         );
         [...touchedAndErrorsValuesSet].forEach((key) => {
