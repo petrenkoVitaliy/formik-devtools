@@ -1,8 +1,8 @@
 import { notEmpty } from '../helpers/utils';
-import { ChangedState, IFormikState, IFormikValues, IFormProps } from '../interfaces/formikState';
+import { ChangedState, IFormikState, IFormikValues, InitialProperties } from '../interfaces/formikState';
 
-export const getChangedProps = (prevState: IFormikState, currentState: IFormikState): ChangedState => {
-    const changedProps = prevState.dirty !== currentState.dirty ? 'dirty' : '';
+export const getChangedProps = (prevState: IFormikState, currentState: IFormikState): ChangedState | null => {
+    const changedProperties = prevState.dirty !== currentState.dirty ? 'dirty' : '';
 
     const changedValuesSet = new Set<string>();
     [
@@ -23,17 +23,24 @@ export const getChangedProps = (prevState: IFormikState, currentState: IFormikSt
         ...getChangedTouched(prevState.values, currentState.values),
         ...getChangedTouched(currentState.values, prevState.values),
     ].forEach((changedValue) => changedValuesSet.add(changedValue));
-    const changedTouched = [...changedTouchedSet].join(', ');
+    const changedTouches = [...changedTouchedSet].join(', ');
 
-    return {
-        changedErrors,
-        changedProps,
-        changedTouched,
-        changedValues,
-    };
+    const isSomethingHasChanged = Boolean(changedErrors || changedProperties || changedTouches || changedValues);
+
+    return isSomethingHasChanged
+        ? {
+              changedErrors,
+              changedProperties,
+              changedTouches,
+              changedValues,
+          }
+        : null;
 };
 
-export const getChangedInitialProps = (prevState: IFormProps, currentState: IFormikState): ChangedState => {
+export const getChangedInitialProps = (
+    prevState: InitialProperties,
+    currentState: IFormikState,
+): ChangedState | null => {
     const changedValuesSet = new Set<string>();
     [
         ...getChangedValues(prevState.initialValues, currentState.values),
@@ -42,7 +49,7 @@ export const getChangedInitialProps = (prevState: IFormProps, currentState: IFor
 
     const changedValues = [...changedValuesSet].join(', ');
 
-    return { changedValues };
+    return changedValues ? { changedValues } : null;
 };
 
 const getChangedValues = (prevFormikValues: IFormikValues, currentFormikValues: IFormikValues): string[] => {
@@ -81,7 +88,7 @@ const getChangedTouched = (prevFormikValues: IFormikValues, currentFormikValues:
 const isValuesChangedCheck = (prevValue: any, currentValue: any): boolean => {
     if (typeof prevValue === 'object') {
         if (prevValue === null) {
-            return prevValue === currentValue;
+            return prevValue !== currentValue;
         }
         if (prevValue.length !== undefined) {
             return (
@@ -94,7 +101,9 @@ const isValuesChangedCheck = (prevValue: any, currentValue: any): boolean => {
             return (
                 !currentValue ||
                 Object.entries(prevValue as { [key: string]: any })
-                    .map(([key, value]) => isValuesChangedCheck(value, currentValue[key]))
+                    .map(([key, value]) => {
+                        return isValuesChangedCheck(value, currentValue[key]);
+                    })
                     .some(Boolean)
             );
         }

@@ -1,4 +1,4 @@
-import { ValueType } from '../interfaces/formikState';
+import { ValueType } from '../interfaces/values';
 
 export const isValueTouchedCheck = (key: string, touchedValues: { [key: string]: boolean } = {}): boolean => {
     return touchedValues[key];

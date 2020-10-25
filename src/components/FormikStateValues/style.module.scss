@@ -1,6 +1,6 @@
-@import 'colorVariables.scss';
+@import '../../styles/colorVariables.scss';
 
-.stateWpapper {
+.stateWrapper {
     width: 100%;
 
     font-family: monospace;
@@ -48,7 +48,7 @@
 
         .collapsedValue {
             margin-left: 10px;
-            color: $collapcedColor;
+            color: $collapsedColor;
 
             &.stringValueColor {
                 color: $stringValueColor;

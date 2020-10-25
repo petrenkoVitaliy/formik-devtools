@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 
-import { IFormikValue, ValueType } from '../../interfaces/formikState';
+import { IFormikValue } from '../../interfaces/formikState';
 import classNames from './style.module.scss';
 import { renderValue } from '../../helpers/renderValue';
+import { ValueType } from '../../interfaces/values';
 
 interface FormikStateValuesProps {
     formikStateValues: IFormikValue;
@@ -38,7 +39,7 @@ export const FormikStateValues: React.FunctionComponent<FormikStateValuesProps> 
 
     return (
         <div
-            className={classnames([classNames.stateWpapper], {
+            className={classnames([classNames.stateWrapper], {
                 [classNames.error]: !!formikStateValues.error,
                 [classNames.touched]: formikStateValues.touched,
             })}

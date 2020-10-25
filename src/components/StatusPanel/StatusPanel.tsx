@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { IFormikStateWithChanged } from '../../interfaces/formikState';
+import { IFormikDetailedState } from '../../interfaces/formikState';
 
 import classNames from './style.module.scss';
 
@@ -8,7 +8,7 @@ interface StatusPanelProps {
     currentStep: number;
     steps: number;
     isInitValuesShown: boolean;
-    currentState?: IFormikStateWithChanged;
+    currentState?: IFormikDetailedState;
 
     setNextStep: () => void;
     setPreviousStep: () => void;
@@ -49,10 +49,10 @@ export const StatusPanel: React.FunctionComponent<StatusPanelProps> = (props) =>
             </div>
             {currentState && !isInitValuesShown && (
                 <>
-                    {currentState.changed.changedProps && (
+                    {currentState.changed.changedProperties && (
                         <div className={classNames.status}>
                             <div className={classNames.statusAttr}>
-                                Changed Props: {currentState.changed.changedProps}
+                                Changed Props: {currentState.changed.changedProperties}
                             </div>
                         </div>
                     )}
@@ -70,10 +70,10 @@ export const StatusPanel: React.FunctionComponent<StatusPanelProps> = (props) =>
                             </div>
                         </div>
                     )}
-                    {currentState.changed.changedTouched && (
+                    {currentState.changed.changedTouches && (
                         <div className={classNames.status}>
                             <div className={classNames.statusAttr}>
-                                Changed Touched: {currentState.changed.changedTouched}
+                                Changed Touched: {currentState.changed.changedTouches}
                             </div>
                         </div>
                     )}

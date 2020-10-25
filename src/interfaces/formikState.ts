@@ -1,11 +1,13 @@
+import { ValueType } from './values';
+
 export interface ChangedState {
-    changedProps?: string;
+    changedProperties?: string;
     changedValues?: string;
     changedErrors?: string;
-    changedTouched?: string;
+    changedTouches?: string;
 }
 
-export interface IFormikStateWithChanged {
+export interface IFormikDetailedState {
     state: IFormikState;
     changed: ChangedState;
 }
@@ -15,7 +17,7 @@ export interface IFormikState {
     values: IFormikValues;
 }
 
-export interface IFormProps {
+export interface InitialProperties {
     name: string;
     initialValues: {
         [key: string]: IFormikValue;
@@ -25,8 +27,6 @@ export interface IFormProps {
 export interface IFormikValues {
     [key: string]: IFormikValue;
 }
-
-export type ValueType = 'string' | 'number' | 'boolean' | 'object' | 'undefined' | 'null';
 
 export interface IFormikValue {
     value: any;
