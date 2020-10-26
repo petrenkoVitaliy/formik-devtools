@@ -1,5 +1,3 @@
-console.log('war init');
-
 let testFunction = function (props) {
     try {
         if (props) {

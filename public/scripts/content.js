@@ -1,6 +1,4 @@
 (function () {
-    console.log('content init');
-
     function injectScript(file) {
         var s = document.createElement('script');
         s.setAttribute('type', 'text/javascript');
@@ -10,21 +8,11 @@
     injectScript(chrome.extension.getURL('/scripts/war.js'));
 
     let messagesList = [];
-
-    document.addEventListener('formikDevtoolsEvent', ({ detail: formikProps }) => {
-        messagesList.push({ formikProps });
-        tryToConnect();
-    });
-
-    const runtimeId = chrome.runtime.id;
-    let port = chrome.runtime.connect(runtimeId);
-    let isConnected = false;
+    let port = undefined;
 
     function tryToConnect() {
-        if (isConnected) {
+        if (port) {
             sendMessages();
-        } else {
-            chrome.runtime.connect(runtimeId);
         }
     }
 
@@ -35,12 +23,18 @@
         messagesList = [];
     }
 
+    document.addEventListener('formikDevtoolsEvent', ({ detail: formikProps }) => {
+        messagesList.push({ formikProps });
+        tryToConnect();
+    });
+
     chrome.runtime.onMessage.addListener(function (request) {
         if (request.message === 'start') {
-            port = chrome.runtime.connect(runtimeId);
-            console.log('got');
-            isConnected = true;
+            port = chrome.runtime.connect(chrome.runtime.id);
+
             sendMessages();
+
+            console.info('[FORMIK:DEVTOOLS] connected to extension');
         }
     });
 })();
