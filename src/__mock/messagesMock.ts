@@ -45,20 +45,3 @@ const mockMessages = [
 ];
 
 export { mockMessages };
-
-/* <Formik
-validationSchema={validationSchema}
-onSubmit={handleSave}
-initialValues={initialValues}
-enableReinitialize
-initialStatus="init"
->
-{(formikProps) => {
-  if ((window as any).testFunction) {
-    if (formikProps.status) {
-      formikProps.setStatus(undefined);
-      (window as any).testFunction({ ...formikProps, __init: true });
-    } else {
-      (window as any).testFunction(formikProps);
-    }
-  } */
