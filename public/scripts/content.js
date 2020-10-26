@@ -23,7 +23,7 @@
         messagesList = [];
     }
 
-    document.addEventListener('formikDevtoolsEvent', ({ detail: formikProps }) => {
+    document.addEventListener('FORMIK_DEVTOOLS_EVENT', ({ detail: formikProps }) => {
         messagesList.push({ formikProps });
         tryToConnect();
     });

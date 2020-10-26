@@ -1,8 +1,8 @@
-let testFunction = function (props) {
+const sendFormikDevtoolsMessage = function (props) {
     try {
         if (props) {
             document.dispatchEvent(
-                new CustomEvent('formikDevtoolsEvent', {
+                new CustomEvent('FORMIK_DEVTOOLS_EVENT', {
                     detail: JSON.stringify(props),
                 }),
             );
@@ -11,4 +11,5 @@ let testFunction = function (props) {
         console.log(ex);
     }
 };
-window.testFunction = testFunction;
+
+window.FORMIK_DEVTOOLS = sendFormikDevtoolsMessage;
