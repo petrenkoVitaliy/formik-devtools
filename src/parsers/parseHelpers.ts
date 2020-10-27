@@ -13,7 +13,7 @@ export const getCollapsedValue = (value: any): string | number | boolean | undef
         case 'object':
             return value === null ? null : JSON.stringify(value);
         case 'string':
-            return value;
+            return `'${value}'`;
         case 'number':
             return value;
         case 'boolean':

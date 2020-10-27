@@ -5,6 +5,7 @@ export interface ChangedState {
     changedValues?: string;
     changedErrors?: string;
     changedTouches?: string;
+    composedChangedString?: string;
 }
 
 export interface IFormikDetailedState {

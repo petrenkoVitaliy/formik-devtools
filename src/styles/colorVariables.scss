@@ -1,13 +1,30 @@
-$defaultValueColor: grey;
-$stringValueColor: orange;
-$numberValueColor: blue;
-$booleanValueColor: coral;
-$nullValueColor: green;
-$objectValueColor: indigo;
-$symbolColor: black;
+$backgroundColor: #282a36;
+$sidePanel: #282a36;
 
-$errorColor: red;
-$touchedColor: rgb(98, 98, 241);
-$collapsedColor: rgb(113, 5, 236);
+$statusPanel: #282a36;
+$statusPanelText: #f8f8f2;
 
-$backgroundColor: rgb(247, 247, 247);
+$statusPanelButton: #353746;
+$statusPanelButtonText: #f8f8f2;
+$statusPanelButtonHovered: #424450;
+$statusPanelBorder: #424450;
+
+$stateItem: #282a36;
+$stateItemBorder: #424450;
+$selectedStateItem: #6272a4;
+$hoveredStateItem: #6272a4;
+$stateItemText: #f8f8f2;
+$stateItemStepText: #e66fb4;
+
+$fieldName: #e66fb4;
+$defaultValueColor: #f8f8f2;
+$stringValueColor: #e0a464;
+$numberValueColor: #00afff;
+$booleanValueColor: #bd93f9;
+$nullValueColor: #50fa7b;
+$objectValueColor: #f1fa8c;
+$symbolColor: #f8f8f2;
+
+$errorColor: #ff5555;
+$touchedColor: #8be9fd;
+$collapsedColor: #f8f8f2;

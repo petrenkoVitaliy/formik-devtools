@@ -2,9 +2,9 @@
 
 .stateWrapper {
     width: 100%;
-
-    font-family: monospace;
-    font-size: 13px;
+    font-family: 'Inconsolata', monospace;
+    line-height: 17px;
+    font-size: 14px;
     padding: 10px;
 
     border: 2px solid $backgroundColor;
@@ -21,32 +21,40 @@
     }
 
     .collapsedWrap {
+        font-family: inherit;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         cursor: pointer;
 
         .name {
+            font-family: inherit;
+            color: $fieldName;
             display: flex;
             align-items: center;
             cursor: pointer;
 
-            border-bottom: 2px dotted $backgroundColor;
+            border-bottom: 1px solid $backgroundColor;
 
             &:hover {
-                border-bottom: 2px dotted $symbolColor;
+                border-bottom: 1px solid $fieldName;
             }
 
             > img {
                 width: 10px;
                 height: 10px;
                 margin-right: 10px;
+                background: $fieldName;
+                padding: 2px;
+                border-radius: 50%;
+                box-sizing: content-box;
             }
 
             font-weight: bold;
         }
 
         .collapsedValue {
+            font-family: inherit;
             margin-left: 10px;
             color: $collapsedColor;
 
@@ -89,6 +97,7 @@
             .null {
                 color: $nullValueColor;
             }
+
             .objectProp {
                 color: $objectValueColor;
             }
@@ -105,14 +114,18 @@
     }
 
     .errorText {
-        margin-top: 20px;
+        margin-top: 10px;
         color: $errorColor;
-        margin-left: 40px;
+        margin-left: 0px;
+        font-weight: bold;
+        font-size: 14px;
     }
 
     .touchedText {
-        margin-top: 20px;
+        margin-top: 10px;
         color: $touchedColor;
-        margin-left: 40px;
+        margin-left: 0px;
+        font-size: 14px;
+        font-weight: bold;
     }
 }

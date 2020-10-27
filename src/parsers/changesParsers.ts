@@ -2,28 +2,41 @@ import { notEmpty } from '../helpers/utils';
 import { ChangedState, IFormikState, IFormikValues, InitialProperties } from '../interfaces/formikState';
 
 export const getChangedProps = (prevState: IFormikState, currentState: IFormikState): ChangedState | null => {
+    const composedChangesSet = new Set<string>();
+
     const changedProperties = prevState.dirty !== currentState.dirty ? 'dirty' : '';
+    changedProperties && composedChangesSet.add(changedProperties);
 
     const changedValuesSet = new Set<string>();
     [
         ...getChangedValues(prevState.values, currentState.values),
         ...getChangedValues(currentState.values, prevState.values),
-    ].forEach((changedValue) => changedValuesSet.add(changedValue));
+    ].forEach((changedValue) => {
+        changedValuesSet.add(changedValue);
+        composedChangesSet.add(changedValue);
+    });
     const changedValues = [...changedValuesSet].join(', ');
 
     const changedErrorsSet = new Set<string>();
     [
         ...getChangedErrors(prevState.values, currentState.values),
         ...getChangedErrors(currentState.values, prevState.values),
-    ].forEach((changedValue) => changedErrorsSet.add(changedValue));
+    ].forEach((changedValue) => {
+        changedErrorsSet.add(changedValue);
+        composedChangesSet.add(changedValue);
+    });
     const changedErrors = [...changedErrorsSet].join(', ');
 
     const changedTouchedSet = new Set<string>();
     [
         ...getChangedTouched(prevState.values, currentState.values),
         ...getChangedTouched(currentState.values, prevState.values),
-    ].forEach((changedValue) => changedTouchedSet.add(changedValue));
+    ].forEach((changedValue) => {
+        changedTouchedSet.add(changedValue);
+        composedChangesSet.add(changedValue);
+    });
     const changedTouches = [...changedTouchedSet].join(', ');
+    const composedChangedString = [...composedChangesSet].join(', ');
 
     const isSomethingHasChanged = Boolean(changedErrors || changedProperties || changedTouches || changedValues);
 
@@ -33,6 +46,7 @@ export const getChangedProps = (prevState: IFormikState, currentState: IFormikSt
               changedProperties,
               changedTouches,
               changedValues,
+              composedChangedString,
           }
         : null;
 };

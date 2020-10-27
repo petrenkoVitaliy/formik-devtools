@@ -1,3 +1,3 @@
 export * from './StatusPanel';
-export * from './FormikStateList';
+export * from './FormikStateValuesList';
 export * from './FormikStateValues';
