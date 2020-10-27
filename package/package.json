@@ -1,0 +1,19 @@
+{
+    "name": "formik-devtools",
+    "version": "0.1.0",
+    "description": "devtools for Formik",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/esm/index.d.ts",
+    "files": [
+        "dist/"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^4.0.5"
+    }
+}
