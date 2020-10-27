@@ -18,7 +18,7 @@ module.exports = {
     rules: {
         'react/prop-types': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/no-var-requires': 'off', // Im not sure (App.tsx)
+        '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/no-use-before-define': 0,
     },
     globals: {
