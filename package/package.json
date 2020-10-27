@@ -1,5 +1,5 @@
 {
-    "name": "formik-devtools",
+    "name": "@vitaliyptt/formik_devtools",
     "version": "0.1.0",
     "description": "devtools for Formik",
     "main": "dist/cjs/index.js",
