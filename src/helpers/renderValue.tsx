@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OBJECT_MARGIN = 10;
+const OBJECT_MARGIN = 5;
 
 interface ClassNamesMap {
     [key: string]: string;
@@ -9,7 +9,7 @@ interface ClassNamesMap {
 const renderString = (value: string, classname: string, margin = 0, key = 0) => {
     return (
         <div key={key} style={{ marginLeft: `${margin}px` }} className={classname}>
-            {`"${value}"`}
+            {`'${value}'`}
         </div>
     );
 };
@@ -67,7 +67,7 @@ const renderObject = (valuesObject: { [key: string]: any }, classNamesMap: Class
                     return (
                         <div className={classNamesMap.inline} key={key}>
                             <div className={classNamesMap.objectProp}>{key}:</div>
-                            <div>{renderValue(valueProp, classNamesMap, margin)}</div>
+                            <div>{renderValue(valueProp, classNamesMap, OBJECT_MARGIN)}</div>
                         </div>
                     );
                 })}

@@ -4,11 +4,11 @@ import { IFormikValues } from '../../interfaces/formikState';
 import { FormikStateValues } from '../FormikStateValues';
 import classNames from './style.module.scss';
 
-interface FormikStateListProps {
+interface FormikStateValuesListProps {
     formikState: IFormikValues;
 }
 
-export const FormikStateList: React.FunctionComponent<FormikStateListProps> = (props) => {
+export const FormikStateValuesList: React.FunctionComponent<FormikStateValuesListProps> = (props) => {
     const { formikState } = props;
 
     return (

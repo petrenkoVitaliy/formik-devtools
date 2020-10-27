@@ -1,8 +1,12 @@
+@import '../../styles/colorVariables.scss';
+
 .statusPanel {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(22, 30, 46);
-    width: 400px;
-    margin: 0 10px;
+    font-family: 'Inconsolata', monospace;
+    color: $statusPanelText;
+    background: $statusPanel;
+    height: 300px;
+    width: 100%;
+    padding: 5px 10px;
 
     .controls {
         display: flex;
@@ -12,6 +16,7 @@
         height: 50px;
 
         .button {
+            user-select: none;
             height: 30px;
 
             display: flex;
@@ -20,56 +25,51 @@
 
             padding: 10px;
             box-sizing: border-box;
-            border: 2px solid black;
+            border: 2px solid $statusPanelBorder;
             border-radius: 10px;
             cursor: pointer;
 
+            background: $statusPanelButton;
+            color: $statusPanelButtonText;
+
             &:hover {
-                background: rgb(240, 240, 240);
+                background: $statusPanelButtonHovered;
             }
         }
 
         .steps {
+            user-select: none;
             font-size: 20px;
             font-weight: bold;
         }
-
-        .statusButton {
-            &.initValuesShown {
-                border: 2px solid rgb(113, 5, 236);
-                color: rgb(113, 5, 236);
-            }
-
-            height: 30px;
-            width: 140px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            padding: 10px;
-            box-sizing: border-box;
-            border: 2px solid black;
-            border-radius: 10px;
-            cursor: pointer;
-
-            &:hover {
-                background: rgb(240, 240, 240);
-            }
-        }
     }
 
-    .status {
+    .changedStatusesList {
+        margin-top: 20px;
         width: 100%;
-        height: 50px;
+        height: 210px;
+        overflow-y: auto;
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .statusAttr {
-            color: rgb(113, 5, 236);
+        .title {
+            font-size: 16px;
             font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .changedStatus {
+            margin-bottom: 10px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .statusAttr {
+                font-size: 15px;
+
+                > span {
+                    font-weight: bold;
+                }
+            }
         }
     }
 }

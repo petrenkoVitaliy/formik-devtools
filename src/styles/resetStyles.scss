@@ -1,6 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: rgb(247, 247, 247);
+
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #282a36;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #424450;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #353746;
+    }
 }
