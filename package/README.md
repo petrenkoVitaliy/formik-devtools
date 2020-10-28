@@ -2,7 +2,9 @@
 
 [![NPM version](https://badgen.net/npm/v/@vitaliyptt/formik_devtools)](https://www.npmjs.com/package/@vitaliyptt/formik_devtools)
 
-Chrome extension for debugging Formik (https://github.com/formium/formik) state.
+## Chrome extension for debugging Formik (https://github.com/formium/formik) state.
+
+![image](https://raw.github.com/petrenkoVitaliy/formik-devtools/master/.github/images/screen.png)
 
 ## 1. Installation:
 
