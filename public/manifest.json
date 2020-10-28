@@ -1,40 +1,34 @@
 {
-  "manifest_version": 2,
+    "manifest_version": 2,
 
-  "name": "My Extension",
-  "description": "This extension is a starting point to create a real Chrome extension",
-  "version": "0.0.1",
+    "name": "My Extension",
+    "description": "This extension is a starting point to create a real Chrome extension",
+    "version": "0.1.1",
 
-  "devtools_page": "devtools.html",
+    "devtools_page": "devtools.html",
 
-  "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
-  },
+    "icons": {
+        "16": "16.png",
+        "48": "48.png",
+        "128": "128.png"
+    },
 
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["scripts/content.js"],
-      "run_at": "document_start",
-      "all_frames": true
-    }
-  ],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["scripts/content.js"],
+            "run_at": "document_start",
+            "all_frames": true
+        }
+    ],
 
-  "background": {
-    "scripts": ["scripts/background.js"]
-  },
-  "web_accessible_resources": ["scripts/war.js"],
-  "externally_connectable": {
-    "matches": ["*://*.monday.com/*", "*://127.0.0.1/*"]
-  },
-  "permissions": [
-    "notifications",
-    "contextMenus",
-    "tabs",
-    "storage",
-    "<all_urls>"
-  ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-B+54yc4gCSgqrGNlJwxG6UsPq7pv1Is8KouyCs7rpXg='; object-src 'self'"
+    "background": {
+        "scripts": ["scripts/background.js"]
+    },
+    "web_accessible_resources": ["scripts/war.js"],
+    "externally_connectable": {
+        "matches": ["*://*.monday.com/*", "*://127.0.0.1/*"]
+    },
+    "permissions": ["notifications", "contextMenus", "tabs", "storage", "<all_urls>"],
+    "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-B+54yc4gCSgqrGNlJwxG6UsPq7pv1Is8KouyCs7rpXg='; object-src 'self'"
 }
