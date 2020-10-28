@@ -2,23 +2,25 @@
 
 [![NPM version](https://badgen.net/npm/v/@vitaliyptt/formik_devtools)](https://www.npmjs.com/package/@vitaliyptt/formik_devtools)
 
-Chrome extension for live monitor Formik (https://github.com/formium/formik) state values
+Chrome extension for debugging Formik (https://github.com/formium/formik) state.
 
-### Usage:
+## 1. Installation:
 
--   install package with [npm](https://www.npmjs.com/):
-
-```bash
-npm i @vitaliyptt/formik_devtools
-```
-
--   install chrome extension:
+### 1.1 install package with [npm](https://www.npmjs.com/):
 
 ```bash
 TODO))
 ```
 
--   inside your component with Formik component use:
+### 1.2 install chrome extension:
+
+```bash
+TODO))
+```
+
+## 2. Usage:
+
+### 2.1 inside your component containing `<Formik/>` use:
 
 ```tsx
 import { withFormikDevtools } from "@vitaliyptt/formik_devtools";
@@ -29,25 +31,26 @@ import { withFormikDevtools } from "@vitaliyptt/formik_devtools";
 <Formik>
     {(formikProps) => {
         withFormikDevtools(formikProps);
-        return <input type="file"  .../>
-    }
-</Formik>
-
-
-/* OR (equal)*/
-
-// pass props with ReactElements
-<Formik>
-    {(formikProps) =>
-        withFormikDevtools(
-            formikProps,
-            <div>
-                ...
-            </div>
-        )
+        return <input type="file"  {/* ... */}/>
     }
 </Formik>
 ```
 
--   open page you want to monitor in browser
--   open Chrome devtools (F12) with **"Formik Devtools tab"**
+OR _(both methods are equivalent)_ :
+
+```jsx
+// pass props with ReactElements
+
+<Formik>
+    {(formikProps) =>
+        withFormikDevtools(formikProps,
+        <div>
+            <input type="file"  {/* ... */}/>
+        </div>)
+    }
+</Formik>
+```
+
+### 2.2 open page you want to monitor in browser
+
+### 2.3 open Chrome devtools (F12) with **"Formik Devtools tab"**

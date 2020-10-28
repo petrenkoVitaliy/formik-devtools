@@ -1,21 +1,26 @@
 {
-    "name": "formik-monitor",
-    "version": "0.1.0",
-    "description": "chrome extension for live monitor Formik ",
+    "name": "formik-devtools-extension",
+    "version": "0.1.1",
+    "description": "Formik Developer Tools for debugging React form components",
+    "author": {
+        "email": "vitaliy.ptt@gmail.com",
+        "url": "https://github.com/petrenkoVitaliy",
+        "name": "Vitaliy Petrenko"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/petrenkoVitaliy/formik-devtools"
+    },
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "types": "dist/esm/index.d.ts",
-    "repository": {
-        "url": "https://github.com/petrenkoVitaliy/formik-devtools"
-    },
     "files": [
         "dist/"
     ],
     "scripts": {
         "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
     },
-    "author": "",
-    "license": "ISC",
     "devDependencies": {
         "typescript": "^4.0.5"
     }

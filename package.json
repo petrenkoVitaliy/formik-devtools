@@ -1,12 +1,14 @@
 {
     "name": "formik-devtools",
     "version": "0.1.1",
+    "description": "Formik Developer Tools for debugging React form components",
     "private": true,
     "author": {
         "email": "vitaliy.ptt@gmail.com",
         "url": "https://github.com/petrenkoVitaliy",
         "name": "Vitaliy Petrenko"
     },
+    "license": "MIT",
     "dependencies": {
         "classnames": "^2.2.6",
         "node-sass": "^4.14.1",
