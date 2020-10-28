@@ -1,10 +1,13 @@
 {
-    "name": "@vitaliyptt/formik_devtools",
+    "name": "formik-monitor",
     "version": "0.1.0",
-    "description": "devtools for Formik",
+    "description": "chrome extension for live monitor Formik ",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "types": "dist/esm/index.d.ts",
+    "repository": {
+        "url": "https://github.com/petrenkoVitaliy/formik-devtools"
+    },
     "files": [
         "dist/"
     ],
