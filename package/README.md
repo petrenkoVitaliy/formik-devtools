@@ -1,31 +1,31 @@
 # Formik Devtools
 
-[![NPM version](https://badgen.net/npm/v/@vitaliyptt/formik_devtools)](https://www.npmjs.com/package/@vitaliyptt/formik_devtools)
+[![NPM version](https://badgen.net/npm/v/formik-devtools-extension)](https://www.npmjs.com/package/formik-devtools-extension)
 
-## Chrome extension for debugging Formik (https://github.com/formium/formik) state.
+## Chrome extension for debugging [Formik](https://github.com/formium/formik) state.
 
-![image](https://raw.github.com/petrenkoVitaliy/formik-devtools/master/.github/images/screen.png)
+<p align="center">
+  <img src="https://raw.github.com/petrenkoVitaliy/formik-devtools/master/.github/images/screen.png" alt="Devtools preview"/>
+</p>
 
 ## 1. Installation:
 
-### 1.1 install package with [npm](https://www.npmjs.com/):
+### 1.1 install package with [npm](https://www.npmjs.com/package/formik-devtools-extension):
 
 ```bash
-TODO))
+npm i formik-devtools-extension
 ```
 
 ### 1.2 install chrome extension:
 
-```bash
-TODO))
-```
+<a href="https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en" target="/_blank">Extension</a>
 
 ## 2. Usage:
 
 ### 2.1 inside your component containing `<Formik/>` use:
 
 ```tsx
-import { withFormikDevtools } from "@vitaliyptt/formik_devtools";
+import { withFormikDevtools } from "formik-devtools-extension";
 
 /* ... */
 
