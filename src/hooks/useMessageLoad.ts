@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
-import { addListenerToMessages } from '../chrome-api/chrome';
+import { addListenerToMessages, addListenerToExampleMessages } from '../chrome-api/chrome';
 import { validateValue } from '../helpers/validate';
 import { IMessage } from '../interfaces/message';
 import { messageValidation } from '../validation/messageValidation';
 import { mockMessages } from '../__mock/messagesMock';
 
-export const useMessageLoad = () => {
+export const useMessageLoad = (isExample?: boolean) => {
     const [message, setMessage] = useState<IMessage | undefined>(undefined);
 
     useEffect(() => {
-        addListenerToMessages(onMessage);
+        if (isExample) {
+            addListenerToExampleMessages(onMessage);
+        } else {
+            addListenerToMessages(onMessage);
+        }
+        // eslint-disable-next-line
     }, []);
 
     const onMessage = async (message: { formikProps: string }) => {

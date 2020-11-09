@@ -11,15 +11,21 @@
     "license": "MIT",
     "dependencies": {
         "classnames": "^2.2.6",
+        "formik": "^2.2.3",
+        "formik-devtools-extension": "^0.1.4",
         "node-sass": "^4.14.1",
+        "prism-react-renderer": "^1.1.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-live": "^2.2.3",
         "react-scripts": "3.4.3",
         "yup": "^0.29.3"
     },
     "scripts": {
         "start": "react-scripts start",
+        "start-examples": "REACT_APP_ENV=test react-scripts start",
         "build": "react-scripts build",
+        "build-examples": "REACT_APP_ENV=test react-scripts build",
         "eject": "react-scripts eject",
         "lint": "eslint \"src/**/*.{js,ts,tsx}\" --fix",
         "prettier": "prettier --write --print-width 120  --trailing-comma all \"**/*.+(ts|tsx|js|jsx)\""

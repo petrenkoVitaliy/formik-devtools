@@ -12,24 +12,26 @@ import classNames from './style.module.scss';
 import { StatesList } from '../components/StatesList/StatesList';
 
 interface FormikDevtoolsProps {
-    readyPing: () => void;
+    readyPing?: () => void;
+    example?: boolean;
 }
 
-const FormikDevtools: React.FunctionComponent<FormikDevtoolsProps> = ({ readyPing }) => {
+const FormikDevtools: React.FunctionComponent<FormikDevtoolsProps> = ({ readyPing, example }) => {
     const [, /*formProps*/ setFormProps] = useState<InitialProperties | undefined>(undefined);
     const [formikStates, setFormikStates] = useState<IFormikDetailedState[]>([]);
 
     const [currentStep, setCurrentStep] = useState<number>(-1);
-
-    const { message: newMessage } = useMessageLoad();
+    const { message: newMessage } = useMessageLoad(example);
 
     useEffect(() => {
-        readyPing();
+        readyPing && readyPing();
     }, [readyPing]);
 
     useEffect(() => {
-        console.log(formikStates);
-    }, [formikStates]);
+        if (!example) {
+            console.log(formikStates);
+        }
+    }, [formikStates, example]);
 
     useEffect(() => {
         if (newMessage) {
