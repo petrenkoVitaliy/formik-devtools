@@ -1,0 +1,87 @@
+@import '../../styles/colorVariables.scss';
+
+.exampleDevtoolsWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    background: $statusPanelText;
+
+    .extensionWrapper {
+        width: 60%;
+    }
+
+    .formWrapper {
+        height: 100%;
+        overflow: scroll;
+        font-family: 'Inconsolata', monospace;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            border: 1px dotted $statusPanel;
+            width: 167px;
+            padding: 5px;
+        }
+
+        .editorWrapper {
+            min-height: 400px;
+            overflow: auto;
+        }
+
+        .fieldBlock {
+            margin: 20px 0;
+            user-select: none;
+
+            input {
+                margin-right: 10px;
+            }
+            > label {
+                cursor: pointer;
+            }
+            > select {
+                cursor: pointer;
+            }
+        }
+
+        .subtitle {
+            margin-bottom: 5px;
+        }
+
+        .error {
+            color: $errorColor;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            font-size: 16px;
+            user-select: none;
+            height: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid $statusPanelBorder;
+            border-radius: 10px;
+            cursor: pointer;
+
+            background: $statusPanelButton;
+            color: $statusPanelButtonText;
+
+            &:hover {
+                background: $statusPanelButtonHovered;
+            }
+            margin-bottom: 20px;
+        }
+    }
+}

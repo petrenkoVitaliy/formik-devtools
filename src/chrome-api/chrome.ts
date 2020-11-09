@@ -30,3 +30,9 @@ export const addListenerToMessages = (callBack: (arg: any) => void) => {
         });
     }
 };
+
+export const addListenerToExampleMessages = (callBack: (arg: any) => void) => {
+    document.addEventListener('FORMIK_EXAMPLE_DEVTOOLS_EVENT', ({ detail: formikProps }: any) => {
+        callBack({ formikProps });
+    });
+};
