@@ -4,6 +4,8 @@
 
 ## Chrome extension for debugging [Formik](https://github.com/formium/formik) state.
 
+## Check Demo [here](https://petrenkovitaliy.github.io/)
+
 <p align="center">
   <img src="https://raw.github.com/petrenkoVitaliy/formik-devtools/master/.github/images/screen.png" alt="Devtools preview"/>
 </p>
