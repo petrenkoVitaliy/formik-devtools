@@ -12,4 +12,5 @@ export const messageValidation = yup.object<IMessage>().shape({
 
     dirty: yup.boolean().required(),
     __init: yup.boolean(),
+    __formName: yup.string(),
 });

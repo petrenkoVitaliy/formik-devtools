@@ -8,17 +8,18 @@ export interface IMessage {
         [key: string]: ValueType;
     };
     initialErrors: {
-        [key: string]: ValueType;
+        [key: string]: ValueType | ValueType[];
     };
     initialTouched: {
-        [key: string]: boolean;
+        [key: string]: ValueType | ValueType[];
     };
     errors: {
-        [key: string]: string;
+        [key: string]: ValueType | ValueType[];
     };
     touched: {
-        [key: string]: boolean;
+        [key: string]: ValueType | ValueType[];
     };
     dirty: boolean;
     __init: boolean;
+    __formName?: string;
 }

@@ -16,9 +16,7 @@ export const addListenerToMessages = (callBack: (arg: any) => void) => {
         return;
     } else {
         chrome.runtime.onConnect.addListener((port) => {
-            console.log(port);
             if (!chrome.runtime.onConnect.hasListener(callBack)) {
-                console.log('connected');
                 port.onMessage.addListener(callBack);
             }
         });
