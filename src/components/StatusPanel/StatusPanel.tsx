@@ -1,4 +1,6 @@
 import React from 'react';
+import classnames from 'classnames';
+
 import { IFormikDetailedState } from '../../interfaces/formikState';
 
 import classNames from './style.module.scss';
@@ -6,17 +8,45 @@ import classNames from './style.module.scss';
 interface StatusPanelProps {
     currentStep: number;
     steps: number;
+    formsList: string[];
+    selectedForm: string;
     currentState?: IFormikDetailedState;
 
+    handleSelectForm: (formName: string) => void;
     setNextStep: () => void;
     setPreviousStep: () => void;
 }
 
 export const StatusPanel: React.FunctionComponent<StatusPanelProps> = (props) => {
-    const { currentStep, steps, setNextStep, setPreviousStep, currentState } = props;
+    const {
+        currentStep,
+        steps,
+        setNextStep,
+        setPreviousStep,
+        currentState,
+        formsList,
+        selectedForm,
+        handleSelectForm,
+    } = props;
+
+    const handleFormChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        handleSelectForm(event.target.value);
+    };
 
     return (
-        <div className={classNames.statusPanel}>
+        <div className={classnames(classNames.statusPanel, { [classNames.withSelect]: formsList.length > 1 })}>
+            {formsList.length > 1 && (
+                <div className={classNames.selectWrapper}>
+                    <div className={classNames.selectLabel}>Current Form:</div>
+                    <select value={selectedForm} onChange={handleFormChange}>
+                        {formsList.map((formName) => (
+                            <option value={formName} key={formName}>
+                                {formName}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            )}
             <div className={classNames.controls}>
                 <div className={classNames.button} onClick={setPreviousStep}>
                     Previous
