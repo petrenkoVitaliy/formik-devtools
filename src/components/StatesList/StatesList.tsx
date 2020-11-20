@@ -6,18 +6,19 @@ import classNames from './style.module.scss';
 interface StatesListProps {
     formikStates: IFormikDetailedState[];
     currentStep: number;
+    isFormsList: boolean;
     selectStep: (step: number) => void;
 }
 
 export const StatesList: React.FunctionComponent<StatesListProps> = (props) => {
-    const { formikStates, currentStep, selectStep } = props;
+    const { formikStates, currentStep, selectStep, isFormsList } = props;
 
     const handleSelectStep = (step: number) => () => selectStep(step);
 
     const reversedStates = useMemo(() => [...formikStates].reverse(), [formikStates]);
 
     return (
-        <div className={classNames.statesList}>
+        <div className={classnames([classNames.statesList], { [classNames.withSelect]: isFormsList })}>
             {reversedStates.map((state, index) => (
                 <div
                     className={classnames(classNames.stateItem, {
