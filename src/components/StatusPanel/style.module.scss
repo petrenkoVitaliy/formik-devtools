@@ -36,6 +36,10 @@
             background: $statusPanelButton;
             color: $statusPanelText;
             border: 2px solid $statusPanelBorder;
+
+            &:focus {
+                outline: none;
+            }
         }
     }
 

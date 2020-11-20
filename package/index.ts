@@ -17,3 +17,18 @@ const FormikDevtools = () => {
 };
 
 export const withFormikDevtools = FormikDevtools();
+
+const getNamedFormikDevtools = (formName: string) => {
+    let isInitialRender = true;
+    return <T, M>(formikProps: T, children?: M) => {
+        if (extendedWindow.FORMIK_DEVTOOLS) {
+            extendedWindow.FORMIK_DEVTOOLS({ ...formikProps, __init: isInitialRender, __formName: formName });
+            if (isInitialRender) {
+                isInitialRender = false;
+            }
+        }
+        return children;
+    };
+};
+
+export const getFormikDevtools = getNamedFormikDevtools;
