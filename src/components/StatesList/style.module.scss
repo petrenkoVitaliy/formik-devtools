@@ -6,6 +6,10 @@
     height: calc(100% - 300px);
     overflow-y: auto;
 
+    &.withSelect {
+        height: calc(100% - 330px);
+    }
+
     .stateItem {
         font-size: 16px;
         user-select: none;

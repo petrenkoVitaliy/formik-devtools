@@ -1,11 +1,27 @@
 import { ValueType } from '../interfaces/values';
 
-export const isValueTouchedCheck = (key: string, touchedValues: { [key: string]: boolean } = {}): boolean => {
-    return touchedValues[key];
+export const isValueTouchedCheck = (
+    key: string,
+    touchedValues: { [key: string]: ValueType | ValueType[] } = {},
+): boolean => {
+    return !!touchedValues[key];
 };
 
-export const getError = (key: string, errors: { [key: string]: string } = {}): string | undefined => {
-    return errors[key] || undefined;
+export const getError = (
+    key: string,
+    errors: {
+        [key: string]: ValueType | ValueType[];
+    } = {},
+): string | undefined => {
+    const error = errors[key];
+    switch (typeof error) {
+        case 'object':
+            return error === null ? undefined : JSON.stringify(error);
+        case 'undefined':
+            return undefined;
+        default:
+            return String(error);
+    }
 };
 
 export const getCollapsedValue = (value: any): string | number | boolean | undefined | null => {
