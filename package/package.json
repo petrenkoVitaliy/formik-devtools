@@ -1,6 +1,6 @@
 {
     "name": "formik-devtools-extension",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Formik Developer Tools for debugging React form components",
     "author": {
         "email": "vitaliy.ptt@gmail.com",

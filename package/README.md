@@ -12,17 +12,15 @@
 
 ## 1. Installation:
 
-### 1.1 install package with [npm](https://www.npmjs.com/package/formik-devtools-extension):
+### 1.1 install chrome [extension](https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en)
+
+### 1.2 install package with [npm](https://www.npmjs.com/package/formik-devtools-extension):
 
 ```bash
 npm i formik-devtools-extension
 ```
 
-### 1.2 install chrome extension:
-
-<a href="https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en" target="/_blank">Extension</a>
-
-## 2. Usage:
+## 2. Quick Start:
 
 ### 2.1 inside your component containing `<Formik/>` use:
 
@@ -58,3 +56,17 @@ OR _(both methods are equivalent)_ :
 ### 2.2 open page you want to monitor in browser
 
 ### 2.3 open Chrome devtools (F12) with **"Formik Devtools tab"**
+
+## 3. API:
+
+-   _withFormikDevtools_ passes Formik props on every update and sends values to extension.
+
+```ts
+withFormikDevtools(formikProps: FormikProps, children?: any): children | undefined
+```
+
+-   If you have more than one Formik component, you should name them. _getFormikDevtools_ returns _withFormikDevtools_ entity with binded name.
+
+```ts
+getFormikDevtools(formName: string): withFormikDevtools
+```
