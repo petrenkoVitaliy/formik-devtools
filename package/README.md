@@ -2,7 +2,7 @@
 
 [![NPM version](https://badgen.net/npm/v/formik-devtools-extension)](https://www.npmjs.com/package/formik-devtools-extension)
 
-## Chrome extension for debugging [Formik](https://github.com/formium/formik) state.
+## Browser extension for debugging [Formik](https://github.com/formium/formik) state.
 
 ## Check Demo [here](https://petrenkovitaliy.github.io/)
 
@@ -53,9 +53,36 @@ OR _(both methods are equivalent)_ :
 </Formik>
 ```
 
+you can also use it in functional components
+
+```jsx
+import { useFormik } from 'formik';
+import { withFormikDevtools } from 'formik-devtools-extension';
+
+export const FunctionalComponent = () => {
+    // initializing a form with a hook
+    const formikForm = useFormik({
+        initialValues: {
+            firstFormValue: '',
+            secondFormValue: {},
+        },
+        onSubmit,
+    });
+
+    // call it at each render
+    withFormikDevtools(formikForm);
+
+
+    return (
+        // ..your form implementation
+    )
+}
+
+```
+
 ### 2.2 open page you want to monitor in browser
 
-### 2.3 open Chrome devtools (F12) with **"Formik Devtools tab"**
+### 2.3 open browser devtools (F12) with **"Formik Devtools tab"**
 
 ## 3. API:
 
