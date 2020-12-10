@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { addListenerToMessages, addListenerToExampleMessages } from '../chrome-api/chrome';
+import { addListenerToMessages, addListenerToExampleMessages } from '../browser-api/browser';
 import { validateValue } from '../helpers/validate';
 import { IMessage } from '../interfaces/message';
 import { messageValidation } from '../validation/messageValidation';
