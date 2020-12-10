@@ -12,7 +12,6 @@ import classNames from './style.module.scss';
 import { StatesList } from '../components/StatesList/StatesList';
 
 interface FormikDevtoolsProps {
-    readyPing?: () => void;
     example?: boolean;
 }
 
@@ -22,16 +21,12 @@ interface FormikFormsStates {
 
 const EMPTY_FORM_NAME = 'unnamed_form';
 
-const FormikDevtools: React.FunctionComponent<FormikDevtoolsProps> = ({ readyPing, example }) => {
+const FormikDevtools: React.FunctionComponent<FormikDevtoolsProps> = ({ example }) => {
     const [formikStates, setFormikStates] = useState<FormikFormsStates>({ [EMPTY_FORM_NAME]: [] });
     const [currentForm, setCurrentForm] = useState<string>(EMPTY_FORM_NAME);
 
     const [currentStep, setCurrentStep] = useState<number>(-1);
     const { message: newMessage } = useMessageLoad();
-
-    useEffect(() => {
-        readyPing && readyPing();
-    }, [readyPing]);
 
     useEffect(() => {
         if (!example) {
