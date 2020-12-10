@@ -23,6 +23,7 @@ module.exports = {
     },
     globals: {
         chrome: 'readonly',
+        browser: 'readonly',
         document: 'readonly',
         window: 'readonly',
         console: 'readonly',

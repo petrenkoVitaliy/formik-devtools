@@ -1,6 +1,6 @@
 {
     "name": "formik-devtools",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Formik Developer Tools for debugging React form components",
     "private": true,
     "author": {
@@ -58,6 +58,7 @@
         "@types/classnames": "^2.2.10",
         "@typescript-eslint/eslint-plugin": "4.0.0",
         "@typescript-eslint/parser": "4.0.0",
+        "@types/firefox-webext-browser": "^82.0.0",
         "pre-commit": "^1.2.2",
         "prettier": "^2.1.2",
         "eslint-config-prettier": "^6.12.0",
