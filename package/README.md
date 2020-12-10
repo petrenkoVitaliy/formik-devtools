@@ -12,7 +12,7 @@
 
 ## 1. Installation:
 
-### 1.1 install chrome [extension](https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en)
+### 1.1 install chrome [extension](https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en) or firefox [addon](https://addons.mozilla.org/en-GB/firefox/addon/formik-devtools/)
 
 ### 1.2 install package with [npm](https://www.npmjs.com/package/formik-devtools-extension):
 
