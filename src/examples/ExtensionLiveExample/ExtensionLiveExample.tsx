@@ -40,7 +40,10 @@ export const ExtensionLiveExample: React.FunctionComponent = () => {
                         href="https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en"
                         target="/_blank"
                     >
-                        Extension
+                        Chrome Extension
+                    </a>
+                    <a href="https://addons.mozilla.org/en-GB/firefox/addon/formik-devtools/" target="/_blank">
+                        Firefox Addon
                     </a>
                 </div>
 
