@@ -12,7 +12,7 @@
 
 ## 1. Installation:
 
-### 1.1 install chrome [extension](https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en) or firefox [addon](https://addons.mozilla.org/en-GB/firefox/addon/formik-devtools/)
+### 1.1 install [Chrome extension](https://chrome.google.com/webstore/detail/formik-devtools/dadeefbkfcpaeacnafgceahcpjlfmmjj?hl=en) or [Firefox addon](https://addons.mozilla.org/en-GB/firefox/addon/formik-devtools/)
 
 ### 1.2 install package with [npm](https://www.npmjs.com/package/formik-devtools-extension):
 
@@ -82,7 +82,7 @@ export const FunctionalComponent = () => {
 
 ### 2.2 open page you want to monitor in browser
 
-### 2.3 open browser devtools (F12) with **"Formik Devtools tab"**
+### 2.3 open browser devtools (F12) with **"Formik tab"**
 
 ## 3. API:
 
