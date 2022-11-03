@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Formik Devtools",
     "description": "Formik Developer Tools for debugging React form components",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "devtools_page": "devtools.html",
     "icons": {
         "16": "16.png",
@@ -21,6 +21,5 @@
         "scripts": ["scripts/background.js"]
     },
     "web_accessible_resources": ["scripts/war.js"],
-    "permissions": ["activeTab"],
     "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-B+54yc4gCSgqrGNlJwxG6UsPq7pv1Is8KouyCs7rpXg='; object-src 'self'"
 }
