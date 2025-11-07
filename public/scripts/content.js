@@ -1,5 +1,5 @@
 (function () {
-    const BROWSER = chrome || browser;
+    const BROWSER = typeof chrome !== 'undefined' ? chrome : browser;
 
     function injectScript(file) {
         var s = document.createElement('script');
@@ -7,7 +7,7 @@
         s.setAttribute('src', file);
         document.documentElement.appendChild(s);
     }
-    injectScript(BROWSER.extension.getURL('/scripts/war.js'));
+    injectScript(BROWSER.runtime.getURL('/scripts/war.js'));
 
     let messagesList = [];
     let port = undefined;

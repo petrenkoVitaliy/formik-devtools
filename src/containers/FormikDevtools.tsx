@@ -69,9 +69,10 @@ const FormikDevtools: React.FunctionComponent<FormikDevtoolsProps> = ({ example 
         // eslint-disable-next-line
     }, [newMessage]);
 
-    const formsList = useMemo(() => Object.keys(formikStates).filter((formName) => !!formikStates[formName].length), [
-        formikStates,
-    ]);
+    const formsList = useMemo(
+        () => Object.keys(formikStates).filter((formName) => !!formikStates[formName].length),
+        [formikStates],
+    );
 
     const setNextStep = () => {
         if (currentStep < formikStates[currentForm].length - 1 && currentStep > -1) {
