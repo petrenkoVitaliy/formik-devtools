@@ -1,4 +1,4 @@
-const BROWSER = chrome || browser;
+const BROWSER = typeof chrome !== 'undefined' ? chrome : browser;
 
 let portToDevtoolsScript = null;
 let portToContentScript = null;
