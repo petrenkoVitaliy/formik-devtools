@@ -1,38 +1,41 @@
 const fs = require('fs');
 const path = require('path');
 
-// Function to extract inline script and save it as a file
 function extractInlineScripts(htmlContent) {
-    const inlineScriptRegex = /(<script>)(.*?)(<\/script>)/g;
+    const inlineScriptRegex = /<script>([\s\S]*?)<\/script>/g;
     let match;
     let index = 0;
-    let modifiedContent = htmlContent;
+    let parts = [];
+    let lastIndex = 0;
 
     while ((match = inlineScriptRegex.exec(htmlContent)) !== null) {
-        const inlineScript = match[2];
-        const filename = `runtime-${index}.js`;
+        const scriptStart = match.index;
+        const scriptEnd = inlineScriptRegex.lastIndex;
+        const inlineScript = match[1];
+        const filename = `runtime-inline-${index}.js`;
 
-        // Save the script to a file
-        fs.writeFileSync(path.join(__dirname, 'build', 'static', 'js', filename), inlineScript);
+        const outDir = path.join(__dirname, 'build', 'static', 'js');
+        if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
-        // Replace inline script with reference to the file
-        modifiedContent = modifiedContent.replace(
-            `<script>${inlineScript}</script>`,
-            `<script src="/static/js/${filename}"></script>`,
-        );
+        fs.writeFileSync(path.join(outDir, filename), inlineScript.trim());
+
+        parts.push(htmlContent.slice(lastIndex, scriptStart));
+        parts.push(`<script src="/static/js/${filename}"></script>`);
+        lastIndex = scriptEnd;
 
         index++;
     }
 
-    return modifiedContent;
+    if (parts.length === 0) return htmlContent;
+
+    parts.push(htmlContent.slice(lastIndex));
+
+    return parts.join('');
 }
 
-// Read the built index.html
 const indexPath = path.join(__dirname, 'build', 'index.html');
 const htmlContent = fs.readFileSync(indexPath, 'utf8');
 
-// Extract inline scripts and update the HTML
 const modifiedHtml = extractInlineScripts(htmlContent);
 
-// Write the modified HTML back
 fs.writeFileSync(indexPath, modifiedHtml);
